@@ -1,0 +1,52 @@
+<% var message = message ? message : '' %>
+<% var errorMessage = errorMessage ? errorMessage : '' %>
+<% var token = token ? token : '' %>
+<% var email = email ? email : '' %>
+<% var name = name ? name : '' %>
+<% var subject = subject ? subject : '' %>
+<% var message = message ? message : '' %>
+<% console.log(errorMessage) %>
+
+<div class="inputForm">
+    <div class="logo">
+        <img src="/images/greenwheels-logo-2020.png" alt="logo" style="max-width: 200px;"/>
+        <p class="text-center"><strong>Support</strong></p>
+    </div>
+    <% if(message || message?.data || errorMessage?.data) { %>
+        <div class="inputWrapper">
+            <% if (message && !message.data) { %>
+                <p class="text-center"><%= message %></p>
+            <% } else { %>
+                <p class="text-center"><%= message.data ? message.data : errorMessage.data %></p>
+                
+            <% } %>
+            <div class="confirm">
+                <a href="/support" class="confirmBtn centerMiddel"  style="text-decoration: none;">Back to support</a>
+            </div>
+        </div>
+    <% } else { %> 
+        <form class="inputWrapper" id="reset" method="POST" action="/support">
+            <div class="input-group">
+                <label for="email">Name</label>
+                <input type="text" name="name" value="<%= name %>" required/>
+
+            </div>
+            <div class="input-group">
+                <label for="email">Email address</label>
+                <input type="text" name="email" value="<%= email %>" required/>
+
+            </div>
+            <div class="input-group">
+                <label for="new_password">Subject</label>
+                <input type="text" name="subject" placeholder="subject" required/>
+            </div>
+            <div class="input-group">
+                <label for="confirm_password">Message</label>
+                <textarea name="message" class="inputWrapper" rows="5" required></textarea>
+            </div>
+            <div class="confirm">
+                <button form="reset" type="submit" class="confirmBtn">Send</button>
+            </div>
+        </form>
+    <% } %>
+</div>

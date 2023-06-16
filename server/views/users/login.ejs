@@ -1,0 +1,31 @@
+<% var message = message ? message : '' %>
+<% var errorMessage = errorMessage ? errorMessage : '' %>
+
+<div class="inputForm">
+    <div class="logo">
+        <img src="/images/greenwheels-logo-2020.png" alt="logo" />
+    </div>
+    <% if(message || errorMessage?.data) { %>
+        <div class="inputWrapper">
+            <p class="text-center"><%= message ? message : errorMessage.data %></p>
+        </div>
+        <div class="confirm">
+            <a href="/login" class="confirmBtn centerMiddel"  style="text-decoration: none;">Login</a>
+        </div>
+    <% } else { %> 
+        <form class="inputWrapper" id="login" method="POST" action="/login">
+            <div class="input-group">
+                <label for="email">Email address</label>
+                <input type="email" name="emailAddress" placeholder="Email address" required/>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" placeholder="******" required/>
+            </div>
+            <div class="confirm">
+                <button form="login" type="submit" class="confirmBtn">Login</button>
+            </div>
+        </form>
+    <% } %>
+
+</div>

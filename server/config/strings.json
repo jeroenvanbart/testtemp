@@ -1,0 +1,11 @@
+{
+    "LoginSuccess": "Logged in",
+    "LoginError": "Credentials are not valid",
+    "LogoutSuccess": "Account has been logged out",
+    "Error404": "No data has been found.",
+    "Error500": "Something went wrong. Try again later.",
+    "ErrorNoResult": "No result",
+    "ErrorNoConnection": "No connection possible. Try again later.",
+    "Unauthorized": "Unauthorized request"
+  }
+  

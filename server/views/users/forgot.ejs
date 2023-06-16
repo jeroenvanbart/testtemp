@@ -1,0 +1,21 @@
+<% var message = message || '' %>
+
+<div class="inputForm">
+    <div class="logo">
+        <img src="/images/greenwheels-logo-2020.png" alt="logo" />
+    </div>
+    <% if(message?.data) { %>
+        <div class="inputWrapper">
+            <p class="text-center"><%= message.data %></p>
+        </div>
+    <% } else { %> 
+        <form class="inputWrapper" id="forgot" method="POST" action="/forgot">
+            <label for="email">Email address</label>
+            <input type="email" name="email" placeholder="Email address" required/>
+            <div class="confirm">
+                <button form="forgot" type="submit" class="confirmBtn">Request new password</button>
+            </div>
+        </form>
+    <% } %>
+
+</div>

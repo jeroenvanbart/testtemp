@@ -1,0 +1,32 @@
+<% var message = message ? message : '' %>
+<% var errorMessage = errorMessage ? errorMessage : '' %>
+<% var token = token ? token : '' %>
+<% var email = email ? email : '' %>
+<% console.log(errorMessage) %>
+
+<div class="inputForm">
+    <div class="logo">
+        <img src="/images/greenwheels-logo-2020.png" alt="logo" />
+    </div>
+    <% if(message?.data || errorMessage?.data) { %>
+        <div class="inputWrapper">
+            <p class="text-center"><%= message.data ? message.data : errorMessage.data %></p>
+        </div>
+    <% } else { %> 
+        <form class="inputWrapper" id="reset" method="POST" action="/reset">
+            <input hidden type="text" name="token" value="<%= token %>"/>
+            <div class="input-group">
+                <label for="new_password">New password</label>
+                <input type="password" name="new_password" placeholder="******" required/>
+            </div>
+            <div class="input-group">
+                <label for="confirm_password">Confirm new password</label>
+                <input type="password" name="confirm_password" placeholder="******" required/>
+            </div>
+            <div class="confirm">
+                <button form="reset" type="submit" class="confirmBtn">Reset your password</button>
+            </div>
+        </form>
+    <% } %>
+
+</div>
